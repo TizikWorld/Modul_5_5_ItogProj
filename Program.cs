@@ -6,11 +6,14 @@
         {
             var tuple = ReadData();
 
+            Console.WriteLine("Хотите проверить правильность введенных данных?");
+            if ("Да" == Console.ReadLine())
+                Answer( tuple.Name , tuple.LName, tuple.age, tuple.pet, tuple.pet_num, tuple.pet_list, tuple.color_num,tuple.color_list);
+                //Не понимаю как вызвать метод с кортежем. Answer(tuple); не работает
 
 
 
-
-            static (string Name, string LName, int age, bool pet, int pet_num, string[] pet_list, int color_num, string[] color_list) ReadData()
+                static (string Name, string LName, int age, bool pet, int pet_num, string[] pet_list, int color_num, string[] color_list) ReadData()
             {
                 (string Name, string LName, int age, bool pet, int pet_num, string[] pet_list, int color_num, string[] color_list) tuple;
 
@@ -97,10 +100,29 @@
 
             static void Answer(string Name, string LName, int age, bool pet, int pet_num, string[] pet_list, int color_num, string[] color_list)
             {
+                Console.WriteLine("Ваше имя: " + Name);
+                Console.WriteLine("Ваша фамилия: " + LName);
+                Console.WriteLine("Ваш возраст: " + age);
+
+                if (pet)
+                {
+                    foreach (string str in pet_list)
+                    {
+                        Console.WriteLine("У вас есть животное с именем: " + str);
+                    }
+                }
+
+                if (color_num>0)
+                {
+                    foreach (string str in color_list)
+                    {
+                        Console.WriteLine("У вас есть любимый цвет: " + str);
+                    }
+                }
+
+                Console.WriteLine("Это все данные которые нам известны о вашей персоне. До скорой встречи.");
 
             }
-
-
         }
     }
 }
