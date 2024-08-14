@@ -47,6 +47,13 @@
                     tuple.pet_list = ReadPet(tuple.pet_num);
                 }
 
+                do
+                {
+                    Console.WriteLine("Сколько у вас любимых цветов?");
+                    tuple.color_num = int.Parse(Console.ReadLine());
+                } while (CheckAge(tuple.color_num));
+
+
                 //if (tuple.pet) =>
 
                 //tuple. = Console.ReadLine();
@@ -69,7 +76,11 @@
             {
                 string[] arr = new string[num_pet];
 
-
+                for(int i  = 0; i < num_pet; i++)
+                {
+                    Console.WriteLine("Введите имя питомца №{0}:",i+1);
+                    arr[i] = Console.ReadLine();
+                }
 
 
                 return arr;
