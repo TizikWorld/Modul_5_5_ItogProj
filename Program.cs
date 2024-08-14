@@ -15,7 +15,6 @@
                 (string Name, string LName, int age, bool pet, int pet_num, string[] pet_list, int color_num, string[] color_list) tuple;
 
                 //Временно для наладки кода
-                tuple.pet = false;
                 tuple.pet_num = 0;
                 tuple.pet_list = new string[1] ;
                 tuple.color_num = 0;
@@ -33,6 +32,24 @@
                     tuple.age = int.Parse(Console.ReadLine());
                 } while (CheckAge(tuple.age));
 
+                Console.WriteLine("Есть ли у вас животные?");
+                if("Да"== Console.ReadLine())
+                    tuple.pet = true;else
+                    tuple.pet = false;
+
+                if (tuple.pet) {
+                    do
+                    {
+                        Console.WriteLine("Введите количество питомцев:");
+                        tuple.pet_num = int.Parse(Console.ReadLine());
+                    } while (CheckAge(tuple.pet_num));
+
+                    tuple.pet_list = ReadPet(tuple.pet_num);
+                }
+
+                //if (tuple.pet) =>
+
+                //tuple. = Console.ReadLine();
 
 
 
@@ -44,10 +61,19 @@
                 bool check;
 
                 if (age > 0)
-                    return check = true;
-                else return check = false;
+                    return check = false;
+                else return check = true;
             }
 
+            static string[] ReadPet(int num_pet)
+            {
+                string[] arr = new string[num_pet];
+
+
+
+
+                return arr;
+            }
 
 
 
