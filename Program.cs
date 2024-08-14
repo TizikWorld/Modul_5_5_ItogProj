@@ -14,11 +14,11 @@
             {
                 (string Name, string LName, int age, bool pet, int pet_num, string[] pet_list, int color_num, string[] color_list) tuple;
 
-                //Временно для наладки кода
+                //Что бы компилятор не жаловался на переменные которые внутри циклов if
                 tuple.pet_num = 0;
-                tuple.pet_list = new string[1] ;
+                tuple.pet_list = new string[1];
                 tuple.color_num = 0;
-                tuple.color_list = new string[1];
+                tuple.color_list = new string[1];                
 
                 Console.WriteLine("Введите свое имя:");
                 tuple.Name = Console.ReadLine();
@@ -44,6 +44,7 @@
                         tuple.pet_num = int.Parse(Console.ReadLine());
                     } while (CheckAge(tuple.pet_num));
 
+                    tuple.pet_list = new string[tuple.pet_num];
                     tuple.pet_list = ReadPet(tuple.pet_num);
                 }
 
@@ -53,12 +54,8 @@
                     tuple.color_num = int.Parse(Console.ReadLine());
                 } while (CheckAge(tuple.color_num));
 
-
-                //if (tuple.pet) =>
-
-                //tuple. = Console.ReadLine();
-
-
+                if(tuple.color_num>0)
+                    tuple.color_list = ReadColor(tuple.color_num);
 
                 return tuple;
             }
@@ -82,12 +79,26 @@
                     arr[i] = Console.ReadLine();
                 }
 
+                return arr;
+            }
+
+            static string[] ReadColor(int num_color)
+            {
+                string[] arr = new string[num_color];
+
+                for (int i = 0; i < num_color; i++)
+                {
+                    Console.WriteLine("Введите название цвета №{0}:", i + 1);
+                    arr[i] = Console.ReadLine();
+                }
 
                 return arr;
             }
 
+            static void Answer(string Name, string LName, int age, bool pet, int pet_num, string[] pet_list, int color_num, string[] color_list)
+            {
 
-
+            }
 
 
         }
